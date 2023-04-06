@@ -24,14 +24,18 @@ app.use(express.json())
 app.use(logger('dev'))
 // Sessions
 app.use(
-    session({
-      secret: 'keyboard cat',
+  session({
+      secret: "keyboard cat",
       resave: false,
       saveUninitialized: false,
-      store: MongoStore.create({ mongoUrl: process.env.DB_STRING }),
+
+      store: MongoStore.create({
+          mongoUrl: process.env.DB_STRING
+      }),
   })
 );
-  
+
+
   
 // Passport middleware
 app.use(passport.initialize())
